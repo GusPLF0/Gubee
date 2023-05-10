@@ -1,4 +1,4 @@
-package SealedExercise;
+package sealedexercise;
 
 public final class Triangle extends Shape {
     private double base;

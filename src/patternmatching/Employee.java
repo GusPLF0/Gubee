@@ -1,4 +1,4 @@
-package PatternMatching;
+package patternmatching;
 
 public class Employee extends Person{
 

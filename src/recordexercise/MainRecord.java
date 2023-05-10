@@ -1,4 +1,4 @@
-package RecordExercise;
+package recordexercise;
 
 public class MainRecord {
     public static void main(String[] args) {

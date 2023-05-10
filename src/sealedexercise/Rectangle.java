@@ -1,4 +1,4 @@
-package SealedExercise;
+package sealedexercise;
 
 public final class Rectangle extends Shape {
     private double length;

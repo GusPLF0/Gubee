@@ -1,4 +1,4 @@
-package Threads.Concurrency;
+package threads.Concurrency;
 
 import java.util.concurrent.*;
 

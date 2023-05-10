@@ -1,4 +1,4 @@
-package SealedExercise;
+package sealedexercise;
 
 public non-sealed class Circle extends Shape {
     private double radius;

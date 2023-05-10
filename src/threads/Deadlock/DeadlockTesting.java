@@ -1,4 +1,4 @@
-package Threads.Deadlock;
+package threads.Deadlock;
 
 public class DeadlockTesting {
     public static void main(String[] args) {

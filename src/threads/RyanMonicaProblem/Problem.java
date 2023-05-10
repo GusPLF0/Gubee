@@ -1,4 +1,4 @@
-package Threads.RyanMonicaProblem;
+package threads.RyanMonicaProblem;
 
 class BankAccount {
     private int balance = 50;

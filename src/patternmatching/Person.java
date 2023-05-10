@@ -1,4 +1,4 @@
-package PatternMatching;
+package patternmatching;
 
 public abstract class Person {
     String name;

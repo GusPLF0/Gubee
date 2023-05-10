@@ -1,4 +1,4 @@
-package PatternMatching;
+package patternmatching;
 
 public class MainPatternMat {
     public static void main(String[] args) {
