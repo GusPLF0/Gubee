@@ -1,4 +1,4 @@
-package gofpatterns.creational.singleton;
+package gofpatterns.creational.builder;
 
 public class User {
 
@@ -35,4 +35,29 @@ public class User {
     }
 
 
+    public static final class UserBuilder {
+        private String name;
+        private int age;
+
+        UserBuilder() {
+        }
+
+        public static UserBuilder anUser() {
+            return new UserBuilder();
+        }
+
+        public UserBuilder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public UserBuilder withAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public User build() {
+            return new User(name, age);
+        }
+    }
 }
