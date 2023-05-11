@@ -3,16 +3,16 @@ package gofpatterns.creational.singleton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Database {
-    private static Database instance;
+public class DatabaseSingleton {
+    private static DatabaseSingleton instance;
     private List<User> users = new ArrayList<>();
 
-    private Database() {
+    private DatabaseSingleton() {
     }
 
-    static Database getInstance() {
+    static DatabaseSingleton getInstance() {
         if (instance == null) {
-            instance = new Database();
+            instance = new DatabaseSingleton();
         }
         return instance;
     }
