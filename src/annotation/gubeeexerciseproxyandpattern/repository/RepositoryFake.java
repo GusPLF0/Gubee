@@ -1,12 +1,14 @@
-package annotation.gubeeexerciseproxyandpattern;
+package annotation.gubeeexerciseproxyandpattern.repository;
 
+import annotation.Transaction;
 import annotation.gubeeexerciseproxy.interfaces.RepositoryInterface;
 import annotation.gubeeexercisewithoutproxy.DatabaseErrorException;
 
 import java.util.Random;
 
-public class RepositoryFake {
+public class RepositoryFake implements RepositoryInterface {
 
+    @Transaction
     public void updateSomething() {
         Random random = new Random();
 
@@ -17,6 +19,11 @@ public class RepositoryFake {
         if (randomNumber % 2 == 0) {
             throw new DatabaseErrorException("Um erro ocorreu durante a execução da operação!");
         }
+
+    }
+
+    @Override
+    public void createSomething() {
 
     }
 

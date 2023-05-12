@@ -17,10 +17,10 @@ public class Main {
         );
 
 
+
         System.out.println("====================================================");
 
         proxyRepository.updateSomething();
-
         System.out.println("====================================================");
 
         proxyRepository.createSomething();

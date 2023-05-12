@@ -1,4 +1,4 @@
-package annotation.gubeeexerciseproxyandpattern;
+package annotation.gubeeexerciseproxyandpattern.exception;
 
 public class DatabaseErrorException extends RuntimeException{
     public DatabaseErrorException(String message) {

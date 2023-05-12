@@ -18,9 +18,9 @@ public class DatabaseHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         if (method.isAnnotationPresent(Transaction.class)) {
-            System.out.println("Iniciando execução do método " + method.getName());
 
             try {
+                System.out.println("Iniciando execução do método " + method.getName());
                 Object result = method.invoke(repositoryInterface, args);
                 System.out.println("Finalizando a execução do método " + method.getName() + " com sucesso!");
                 return result;
