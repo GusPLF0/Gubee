@@ -1,10 +1,13 @@
-package annotation.gubeeexercisewithoutproxy;
+package annotation.gubeeexerciseproxyandpattern;
+
+import annotation.gubeeexerciseproxy.interfaces.RepositoryInterface;
+import annotation.gubeeexercisewithoutproxy.DatabaseErrorException;
 
 import java.util.Random;
 
-public class RepositorioFake {
+public class RepositoryFake {
 
-    private void updateSomething() throws InterruptedException {
+    public void updateSomething() {
         Random random = new Random();
 
         int randomNumber = random.nextInt();

@@ -1,5 +1,7 @@
 package annotation.gubeeexercisewithoutproxy;
 
+import annotation.Transaction;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Objects;
@@ -33,6 +35,7 @@ public class Main {
                 }
 
                 System.out.println("Finalizando execução do método com sucesso");
+                method.setAccessible(false);
             }
         }
     }
