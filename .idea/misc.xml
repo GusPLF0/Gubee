@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/project-reactor-essentials/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-webflux-essentials/pom.xml" />
       </list>
     </option>
   </component>

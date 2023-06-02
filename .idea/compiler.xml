@@ -11,10 +11,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="project-reactor-essentials" />
+        <module name="spring-webflux-essentials" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="project-reactor-essentials" target="17" />
+      <module name="project-reactor-essentials" target="19" />
+      <module name="spring-webflux-essentials" target="17" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-webflux-essentials" options="-parameters" />
+    </option>
   </component>
 </project>

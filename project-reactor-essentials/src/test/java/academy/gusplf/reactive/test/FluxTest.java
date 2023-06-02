@@ -1,9 +1,11 @@
 package academy.gusplf.reactive.test;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Before;
 import org.junit.Test;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+import reactor.blockhound.BlockHound;
 import reactor.core.publisher.BaseSubscriber;
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;
@@ -14,6 +16,12 @@ import java.util.List;
 
 @Slf4j
 public class FluxTest {
+
+    @Before
+    public void setUp() {
+        BlockHound.install();
+    }
+
 
     @Test
     public void fluxSubscriber() {
@@ -197,7 +205,7 @@ public class FluxTest {
                 .thenAwait(Duration.ofDays(1))
                 .expectNext(0L)
                 .thenAwait(Duration.ofDays(1))
-                .expectNext(2L)
+                .expectNext(1L)
                 .thenCancel()
                 .verify();
 

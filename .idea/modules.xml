@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Gubee.iml" filepath="$PROJECT_DIR$/.idea/Gubee.iml" />
       <module fileurl="file://$PROJECT_DIR$/project-reactor-essentials.iml" filepath="$PROJECT_DIR$/project-reactor-essentials.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-webflux-essentials/spring-webflux-essentials.iml" filepath="$PROJECT_DIR$/spring-webflux-essentials/spring-webflux-essentials.iml" />
     </modules>
   </component>
 </project>

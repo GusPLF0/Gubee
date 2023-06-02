@@ -1,10 +1,20 @@
 package academy.gusplf.reactive.test;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.reactivestreams.Subscription;
+import reactor.blockhound.BlockHound;
+import reactor.blockhound.BlockingOperationError;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 import reactor.test.StepVerifier;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 @Slf4j
 /**
@@ -22,6 +32,29 @@ import reactor.test.StepVerifier;
  * O subscription é usado para gerencia backpressure (subscriber gerencia o relacionamento)
  * **/
 public class MonoTest {
+
+
+    @Before
+    public void setUp() {
+        BlockHound.install();
+    }
+
+    @Test
+    public void blockHoundWorks() throws TimeoutException, InterruptedException {
+        try {
+            FutureTask<?> task = new FutureTask<>(() -> {
+                Thread.sleep(0);
+                return "";
+            });
+            Schedulers.parallel().schedule(task);
+
+            task.get(10, TimeUnit.SECONDS);
+            Assert.fail("should fail");
+        } catch (ExecutionException e) {
+            Assert.assertTrue("detected", e.getCause() instanceof BlockingOperationError);
+        }
+    }
+
 
     @Test
     public void monoSubscriber() {
