@@ -2,12 +2,11 @@ package com.gusplf.springwebfluxessentials.controller;
 
 import com.gusplf.springwebfluxessentials.domain.Anime;
 import com.gusplf.springwebfluxessentials.service.AnimeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -20,6 +19,7 @@ public class AnimeController {
     private final AnimeService animeService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public Flux<Anime> listAll() {
         return animeService.findAll();
     }
@@ -27,5 +27,24 @@ public class AnimeController {
     @GetMapping(path = "/{id}")
     public Mono<Anime> findById(@PathVariable int id) {
         return animeService.findById(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Mono<Anime> save(@Valid @RequestBody Anime anime) {
+        return animeService.save(anime);
+    }
+
+
+    @PutMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Mono<Void> update(@PathVariable int id, @Valid @RequestBody Anime anime) {
+        return animeService.update(anime.withId(id));
+    }
+
+    @DeleteMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Mono<Void> delete(@PathVariable int id) {
+        return animeService.delete(id);
     }
 }
